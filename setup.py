@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-from os.path import join, basename, abspath, dirname
+from os.path import join, abspath, dirname
 from setuptools import setup
 
 with open(join(dirname(abspath(__file__)), 'requirements.txt')) as f:
     requirements = f.readlines()
 
+PLUGIN_ENTRY_POINT = 'google_tts_plug = mycroft_tts_plugin_gtts:gTTSPlugin'
 setup(
     name='mycroft-tts-plugin-gtts',
     version='0.2',
@@ -34,4 +35,5 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     keywords='mycroft plugin tts',
+    entry_points={'mycroft.plugin.tts': PLUGIN_ENTRY_POINT}
 )
